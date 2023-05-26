@@ -24,6 +24,13 @@ public class week13_1 {
     }
 
     public static void sort(List<Number> list) {
-        Collections.sort(list);
+        Collections.sort(list, new NumberComparator());
+    }
+    
+    static class NumberComparator implements java.util.Comparator<Number> {
+        @Override
+        public int compare(Number num1, Number num2) {
+            return Double.compare(num1.doubleValue(), num2.doubleValue());
+        }
     }
 }
