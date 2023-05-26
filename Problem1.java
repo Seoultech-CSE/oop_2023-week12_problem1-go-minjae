@@ -1,36 +1,36 @@
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
-public class Problme1 {
+public class Problem1 {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
-        ArrayList<Number> list = new ArrayList<>();
+        ArrayList<Number> list = new ArrayList<Number>();
         System.out.print("Enter five integers and five doubles: ");
 
-        for (int i = 0; i < 5; i++) {
-            list.add(input.nextInt());
-        }
-
-        for (int i = 0; i < 5; i++) {
-            list.add(input.nextDouble());
+        for (int i = 0; i < 10; i++) {
+            if (i < 5) {
+                int num = input.nextInt();
+                list.add(num);
+            } else {
+                double num = input.nextDouble();
+                list.add(num);
+            }
         }
 
         sort(list);
 
-        System.out.println(list);
+        System.out.print(list.get(0));
+        for (int i = 1; i < list.size(); i++) {
+            System.out.print(" " + list.get(i));
+        }
     }
 
-    public static void sort(List<Number> list) {
-        Collections.sort(list, new NumberComparator());
-    }
-    
-    static class NumberComparator implements java.util.Comparator<Number> {
-        @Override
-        public int compare(Number num1, Number num2) {
-            return Double.compare(num1.doubleValue(), num2.doubleValue());
-        }
+    public static void sort(ArrayList<Number> list) {
+         list.sort(new Comparator<Number>() {
+            @Override
+            public int compare(Number num1, Number num2) {
+                return Double.compare(num1.doubleValue(), num2.doubleValue());
+            }
+        });
     }
 }
