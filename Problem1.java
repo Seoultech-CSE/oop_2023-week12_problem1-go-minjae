@@ -3,7 +3,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
-public class week13_1 {
+public class Problme1 {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
